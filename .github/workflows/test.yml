@@ -1,0 +1,17 @@
+name: test
+on:
+    workflow_dispatch:
+    push:
+        branches:
+            - main
+
+jobs:
+  build:
+    name: Sample step
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sample step
+        run: |
+          echo "Sample step"
+          echo "${{ github.event.client_payload.key }}"
+          sleep 20s
