@@ -1,6 +1,11 @@
 name: test
 on:
     workflow_dispatch:
+        inputs:
+            key:
+                description: 'Key'
+                required: true
+                default: 'default'
     push:
         branches:
             - main
@@ -13,5 +18,5 @@ jobs:
       - name: Sample step
         run: |
           echo "Sample step"
-          echo "${{ github.event.client_payload.key }}"
+          echo "${{ github.event.inputs.key }}"
           sleep 20s
