@@ -20,3 +20,4 @@ jobs:
           echo "Sample step"
           echo "${{ github.event.inputs.key }}"
           sleep 20s
+          exit 1
