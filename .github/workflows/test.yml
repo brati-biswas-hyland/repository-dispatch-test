@@ -10,6 +10,10 @@ on:
         branches:
             - main
 
+concurrency:
+  group: build-${{ github.event.workflow_run.id }}  # Unique concurrency group per workflow trigger
+  cancel-in-progress: false  # Ensure queued workflows are not canceled
+
 jobs:
   build:
     name: Sample step
